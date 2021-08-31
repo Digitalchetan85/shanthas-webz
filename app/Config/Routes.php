@@ -17,6 +17,8 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php'))
  * Router Setup
  * --------------------------------------------------------------------
  */
+
+
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
@@ -34,6 +36,14 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+
+$myroutes=[];
+$myroutes ['about']='Home::about';
+$myroutes ['contact']='Home::contact';
+
+$myroutes ['/design-solutions/creatives']='DesignSolutions::creatives';
+
+$routes->map($myroutes);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
